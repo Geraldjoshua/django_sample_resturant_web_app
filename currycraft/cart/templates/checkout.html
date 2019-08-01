@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block metadescription %}
+	proceed to review your items and place the order
+{% endblock %}
+{% block title %}
+	Cart-cury&craft
+{% endblock %}
+{% block content %}
+<h1>Billing information:</h1>
+<form  method="post">
+  {% csrf_token %}
+  {{form | crispy}}
+  <button class="btn btn-primary" type="submit">Order</button>
+</form>
+
+{% endblock %}
+
+<!--  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationServer01">First name</label>
+      <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationServer02">Last name</label>
+      <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+  	<div class="col-md-6 mb-3">
+      <label for="validationServer03">Country</label>
+      <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="City" value="SouthAfrica" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationServer03">City</label>
+      <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="City" required>
+      <div class="invalid-feedback">
+        Please provide a valid city.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">Street address</label>
+      <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Address" required>
+      <div class="invalid-feedback">
+        Please provide a valid street address.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">Province</label>
+      <input type="text" class="form-control is-invalid" id="validationServer06" placeholder="Province" required>
+      <div class="invalid-feedback">
+        Please provide a valid state.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer05">Zip</label>
+      <input type="text" class="form-control is-invalid" id="validationServer07" placeholder="Zip" required>
+      <div class="invalid-feedback">
+        Please provide a valid zip.
+      </div>
+    </div>
+  </div>
+ <div class="form-row">
+  	<div class="col-md-6 mb-3">
+      <label for="validationServer03">Phone</label>
+      <input type="text" class="form-control is-invalid" id="validationServer08" placeholder="0820048734" required>
+       <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="validationServer03">Email address</label>
+      <input type="text" class="form-control is-invalid" id="validationServer09" placeholder="jerry@gmail.com" required>
+      <div class="invalid-feedback">
+        Please provide a valid email.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">cash on card</label>
+      <input type="text" class="form-control is-invalid" id="validationServer10" placeholder="cash" required>
+      <div class="invalid-feedback">
+        Please provide a payment on delivery method.
+      </div>
+    </div>
+  </div>-->

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block metadescription %}
+	Sign in and continue ordering.
+{% endblock %}
+{% block title %}
+	login = Curry&craft
+{% endblock %}
+{% block content %}
+	<div class="container">
+		<br>
+		<h1 class = "my_title text-center">Login or Create a new account</h1>
+		<br>
+			<div class = "row">
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center my_custom_div ">
+					<br>
+					<h2 class = "my_title">New Customer?.</h2>
+					<br>
+					<p>when you create a new account with us, you can see your order history.
+					</p>
+					<br>
+					<a href = "{% url 'signup' %}" class="btn btn-secondary">Create new account</a>
+				</div>
+				<div class="col-12 col-sm-12 col-md-12 col-lg-6" style="background-color: orange">
+					<div>
+						<br>
+						<h2 class = "my_title">Registered customers only.</h2>
+						<form method="post">
+							{% csrf_token %}
+							<p>{{ form | crispy }}</p>
+							<button type="submit" class="btn btn-secondary">Login</button>
+						</form>
+						<br>
+					</div>
+					
+					
+				</div>
+			</div>
+	</div>
+	<br>
+{% endblock %}

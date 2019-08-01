@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block metadescription %}
+	{% if category %}
+		{{category.description|truncatewords:155 }}
+	{% else %}
+		welcome to curry and craft.
+	{% endif %}
+{% endblock %}
+{% block title %}
+	{% if category %}
+		{{category.name}}-currycraft
+
+	{% else %}
+		See more please
+	{% endif %}
+{% endblock %}
+{% block content %}
+	{% if category %}
+		<div class="row my_row_class">
+			<div class = "mx-auto">
+				<p><a href="{% url 'home:allProdCat' %}"> Our food collection</a>| {{category.name}}</p>
+			</div>
+		</div>
+	{% endif %}
+	<div class = "mx-auto">
+	{% if category %}
+		<p> picture goes here img class="my_image" src=category.image.url}} alt=category.name}}</p>
+		
+	</div>
+	<br>
+	<div>
+		<h1 class="text-center my_title">{{category.name}}</h1>
+		<p class="text-justify">{{category.description}}</p>
+	</div>
+	<div>
+	{% else %}
+		<img class="my_image my_image_padding" src="{% static 'img/indian.jpg' %}" alt="homebanner" style="width:500px;height:200px;">
+	</div>
+	<br>
+	<div>
+		<h1 class="text-center my_title">The Birth Of Curry & Craft</h1>
+		<p clas="text-justify">Curry & Craft was started by two people with a healthy obsession for both great curry, and delicious beer.  After sampling almost every Indian restaurant in Cape Town, they decided to create a space that filled the gap between fine-dining Indian restaurants and cafeteria style establishments. Ask any household where good curry is made and they’ll tell you that Indian food is about celebration, family, bringing people together and having a fun time with it. Actually; that’s also exactly what beerhouses are about – and so Curry & Craft came about.</p>
+	</div>
+	{% endif %}
+	<div class="container">
+		<div class="row mx-auto">
+			{% for product in products %}
+				<div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-md-12 col-lg-4">
+					<div class="card text-center" style="min-width: 18rem; background-color: orange;">
+						<!-- after the href put this ><img class="card-img-top" src="product.image.url}}" -->
+						<a href="{{product.get_url}}" alt ="{{product.name}}">image goes here</a>
+						<div class="card-body">
+							<h4>{{product.name}}</h4>
+							<p>R{{product.price}}</p>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}
